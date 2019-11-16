@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Rigen Marketing</title>
+
+  <!-- Tell the browser to be responsive to screen width -->
+
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <!-- Bootstrap 3.3.7 -->
+
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  
+    <link rel="icon" href="icon.png">
+  <!-- Font Awesome -->
+
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+
+  <!-- Ionicons -->
+
+  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+
+  <!-- Theme style -->
+
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+
+
+
+  <style type="text/css">
+  	body{
+  		color: white
+  	}
+    .input-group .form-control:first-child{
+
+      padding: 20px;
+
+    }
+    .lockscreen {
+	    background: #333333;
+    } 
+    .lockscreen-wrapper{
+      max-width: 300px !important;
+    }
+  </style>
+
+  <!-- Google Font -->
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+</head>
+
+<body class="hold-transition lockscreen">
+
+<!-- Automatic element centering -->
+
+<div class="lockscreen-wrapper">
+
+  <div class="lockscreen-logo">
+
+    <h1 style="color: white; font-size: 74px"><b>Welcome </h1> 
+
+    <img src="logo.png"><br>
+
+  </div>
+
+  <!-- User name -->
+
+  <div class="lockscreen-name"> </div>
+
+
+
+  <!-- START LOCK SCREEN ITEM -->
+
+  <div class=" ">
+
+    <!-- lockscreen image -->
+
+   <!--  <div class="lockscreen-image">
+
+      <img src="avatar.png" alt="User Image">
+
+    </div> -->
+
+    <!-- /.lockscreen-image -->
+
+
+
+    <!-- lockscreen credentials (contains the form) -->
+
+    <form class=""> 
+      <div class="form-group"> 
+        <input type="text" class="form-control username" placeholder="Username">
+      </div>
+      <div class="form-group"> 
+        <input type="password" class="form-control password" placeholder="Password">
+      </div>  
+         
+        <!-- <div class="input-group-btn">  -->
+        <button type="button" href="#" class="btn btn-md  login-btn  " style="color: black;"> Submit</button> 
+        <!-- </div> -->
+
+      
+
+    </form>
+
+    <!-- /.lockscreen credentials -->
+
+
+
+  </div>
+
+  <!-- /.lockscreen-item -->
+
+ 
+ <!--  <div class="text-center">
+
+    <a href="login.html">Or sign in as a different user</a>
+
+  </div> -->
+
+  <div class="lockscreen-footer text-center col-md-12">
+
+    Copyright &copy; 2019 <b> Rigen Marketing </b><br>
+
+    All rights reserved
+
+  </div>
+
+</div>
+
+<!-- /.center -->
+
+
+
+<!-- jQuery 3 -->
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap 3.3.7 -->
+
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+  $(document).ready(function(){
+
+    $('.login-btn').on('click',function(event){
+
+      event.preventDefault();
+
+      var user = $('.username').val();
+      var pass = $('.password').val();
+
+    
+
+      $.ajax({
+
+        type : 'POST',
+
+        url: 'function.php',
+
+        datatype:'JSON',
+
+        data:{
+
+          action: "admin_login",
+
+          user : user,
+          pass : pass
+
+        },
+
+        
+
+        success: function(data){ 
+
+        console.log(data); 
+
+          if(data == 'success'){
+
+            window.location.href = 'dashboard.php';
+
+          } else{
+            alert(data);
+          }
+
+        }
+
+      });
+
+    });
+
+  });
+
+</script>
+
+</body>
+
+</html>
+
